@@ -2,6 +2,7 @@ pipeline {
   agent { label 'linux'}
   options {
     skipDefaultCheckout(true)
+    timestamps () 
   }
   stages{
     stage('clean workspace') {
