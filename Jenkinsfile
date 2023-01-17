@@ -46,8 +46,31 @@ pipeline {
 	sleep 30 // seconds
       }
 	}
+	stage ('un-tar cats') {
+		steps {
+        sh 'tar -xzvf' Kikicam.tar
+	
+      }  
 	}
-  
+	stage ('tar cats') {
+		steps {
+        sh 'tar -cfz' Kikicam_1.tar ./Kikicam_01
+	
+      }  
+	}
+  	stage ('un-tar more cats') {
+		steps {
+        sh 'tar -xzvf' Kikicam_1.tar
+	
+      }  
+	}
+	stage ('tar more cats') {
+		steps {
+        sh 'tar -cfz' Kikicam_2.tar ./Kikicam_01
+	
+      }  
+	}
+
   post {
     always {
       cleanWs()
