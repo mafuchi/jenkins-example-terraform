@@ -111,4 +111,3 @@ def traditional_int_for_loop(list) {
         sh "echo I love ${list[i]}"
     }
 }
-// echoes everything as expected
