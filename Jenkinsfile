@@ -22,20 +22,25 @@ pipeline {
       }
     }
 	stage('Spike 1: loop of echo statements') {
+		steps {
         echo_all(abcs)
+	  }
     }
-    
     stage('Spike 2: loop of sh commands') {
+		steps {
         loop_of_sh(abcs)
+      }
     }
-    
     stage('Spike 3: loop with preceding SH') {
+		steps {
         loop_with_preceding_sh(abcs)
+      }
     }
-    
     stage('Spike 4: traditional for loop') {
+		steps {
         traditional_int_for_loop(abcs)
-    }
+      }
+	}
 	}
   }
   post {
@@ -43,6 +48,8 @@ pipeline {
       cleanWs()
     }
   }
+
+
 
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
