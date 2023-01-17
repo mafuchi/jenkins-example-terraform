@@ -63,7 +63,7 @@ pipeline {
     }
     stage ('un-tar more cats') {
 	steps {
-        untar file: 'Kikicam_1.tar'
+        untar file : 'Kikicam_1.tar'
       }  
     }
     stage ('tar more cats') {
@@ -73,7 +73,7 @@ pipeline {
     }
         stage ('test cat tar') {
 	steps {
-        tar file: 'Kikicam_2.tar', dir: 'Kikicam_02', test : true	
+        tar test : true, file : 'Kikicam_2.tar', dir : 'Kikicam_02'	
       }  
     }
 	  
