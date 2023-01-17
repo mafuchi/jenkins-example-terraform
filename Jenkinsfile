@@ -7,7 +7,7 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('clean workspace') {
+        stage('clean workspace 01') {
             steps {
                 cleanWs()
             }
@@ -17,12 +17,12 @@ pipeline {
                 checkout scm
             }
         }
-        stage('terraform') {
+        stage('terraform 01') {
             steps {
                 sh './terraformw apply -auto-approve -no-color'
             }
         }
-		stage('deterraform') {
+		stage('deterraform 01') {
             steps {
                 sh 'terraform destroy -auto-approve'
             }
@@ -33,13 +33,13 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('terraform') {
+        stage('terraform 02') {
             steps {
                 sh './terraformw apply -auto-approve -no-color'
             }
 			
         }
-		stage('deterraform') {
+		stage('deterraform 02') {
             steps {
                 sh 'terraform destroy -auto-approve'
             }
