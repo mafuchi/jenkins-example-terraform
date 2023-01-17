@@ -19,26 +19,31 @@ pipeline {
     stage('terraform') {
       steps {
         sh './terraformw apply -auto-approve -no-color'
+	sleep 30 // seconds
       }
     }
 	stage('Spike 1: loop of echo statements') {
 		steps {
         echo_all(abcs)
+	sleep 30 // seconds
 	  }
     }
     stage('Spike 2: loop of sh commands') {
 		steps {
         loop_of_sh(abcs)
+	sleep 30 // seconds
       }
     }
     stage('Spike 3: loop with preceding SH') {
 		steps {
         loop_with_preceding_sh(abcs)
+	sleep 30 // seconds
       }
     }
     stage('Spike 4: traditional for loop') {
 		steps {
         traditional_int_for_loop(abcs)
+	sleep 30 // seconds
       }
 	}
 	}
