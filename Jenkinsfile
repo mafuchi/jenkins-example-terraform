@@ -53,12 +53,12 @@ pipeline {
     }
 	  stage ('un-tar cats') {
 	steps {
-        untar file: './Kikicam.tar' dir: 'Kikicam_01'
+        untar file : 'Kikicam.tar', dir : 'Kikicam_01'
         }  
     }
     stage ('tar cats') {
 	steps { 
-        tar file : 'Kikicam_1.tar' dir : 'Kikicam_01'	compress : true
+        tar file : 'Kikicam_1.tar', dir : 'Kikicam_01',	compress : true
       }  
     }
     stage ('un-tar more cats') {
@@ -68,12 +68,12 @@ pipeline {
     }
     stage ('tar more cats') {
 	steps {
-        tar file : 'Kikicam_2.tar' dir : 'Kikicam_01' compress : true	
+        tar file : 'Kikicam_2.tar', dir : 'Kikicam_01', compress : true	
       }  
     }
         stage ('test cat tar') {
 	steps {
-        tar file: 'Kikicam_2.tar' dir: 'Kikicam_02' test : true	
+        tar file: 'Kikicam_2.tar', dir: 'Kikicam_02', test : true	
       }  
     }
 	  
