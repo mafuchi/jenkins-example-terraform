@@ -1,4 +1,4 @@
-abcs = ['kittens', 'bunnies', 'hamsters']
+abcs = ['kittens', 'bunnies', 'hamsters', 'elepahnts', 'cute dogs']
 pipeline {
   agent { label 'linux'}
   options {
@@ -42,13 +42,13 @@ pipeline {
       }
 	}
 	}
-  }
+  
   post {
     always {
       cleanWs()
     }
   }
-
+}
 
 
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
