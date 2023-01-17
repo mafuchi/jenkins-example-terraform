@@ -24,7 +24,7 @@ pipeline {
         }
 		stage('deterraform 01') {
             steps {
-                sh 'terraform destroy -auto-approve'
+                sh './terraform destroy -auto-approve'
             }
 			
         }
@@ -41,7 +41,7 @@ pipeline {
         }
 		stage('deterraform 02') {
             steps {
-                sh 'terraform destroy -auto-approve'
+                sh './terraform destroy -auto-approve'
             }
 			
         }
