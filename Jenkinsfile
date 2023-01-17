@@ -43,8 +43,6 @@ pipeline {
       cleanWs()
     }
   }
-}
-
 
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
