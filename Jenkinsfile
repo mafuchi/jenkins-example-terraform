@@ -53,7 +53,7 @@ pipeline {
     }
 	  stage ('un-tar cats') {
 	steps {
-        sh 'tar -xzvf ./Kikicam.tar'	
+        sh 'tar -xvf ./Kikicam.tar'	
         }  
     }
     stage ('tar cats') {
@@ -63,7 +63,7 @@ pipeline {
     }
     stage ('un-tar more cats') {
 	steps {
-        sh 'tar -xzvf ./Kikicam_1.tar'
+        sh 'tar -xvf ./Kikicam_1.tar'
       }  
     }
     stage ('tar more cats') {
