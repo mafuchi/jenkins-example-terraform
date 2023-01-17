@@ -25,56 +25,31 @@ pipeline {
     stage('Spike 1: loop of echo statements') {
 	steps {
         echo_all(abcs)
-	sleep 30 // seconds
+	sleep 60 // seconds
       }
     }
     stage('Spike 2: loop of sh commands') {
 	steps {
         loop_of_sh(abcs)
-	sleep 30 // seconds
+	sleep 60 // seconds
       }
     }
     stage('Spike 3: loop with preceding SH') {
 	steps {
         loop_with_preceding_sh(abcs)
-	sleep 30 // seconds
+	sleep 60 // seconds
       }
     }
     stage('Spike 4: traditional for loop') {
 	steps {
         traditional_int_for_loop(abcs)
-	sleep 30 // seconds
+	sleep 60 // seconds
       }
     }
-    stage ('list cats') {
+    stage ('list Items') {
 	steps {
         sh 'ls'	
         }  
-    }
-	  stage ('un-tar cats') {
-	steps {
-        untar file: 'Kikicam.tar', dir: 'Kikicam_01'
-        }  
-    }
-    stage ('tar cats') {
-	steps { 
-        tar file: 'Kikicam_1.tar', dir: 'Kikicam_01',	compress: true
-      }  
-    }
-    stage ('un-tar more cats') {
-	steps {
-        untar file: 'Kikicam_1.tar'
-      }  
-    }
-    stage ('tar more cats') {
-	steps {
-        tar file: 'Kikicam_2.tar', dir: 'Kikicam_01', compress: true	
-      }  
-    }
-        stage ('test cat tar') {
-	steps {
-        untar test: true, file: 'Kikicam_2.tar', dir: 'Kikicam_02'	
-      }  
     }
 	  
   }
