@@ -22,54 +22,50 @@ pipeline {
 	sleep 30 // seconds
       }
     }
-	stage('Spike 1: loop of echo statements') {
-		steps {
+    stage('Spike 1: loop of echo statements') {
+	steps {
         echo_all(abcs)
 	sleep 30 // seconds
-	  }
+      }
     }
     stage('Spike 2: loop of sh commands') {
-		steps {
+	steps {
         loop_of_sh(abcs)
 	sleep 30 // seconds
       }
     }
     stage('Spike 3: loop with preceding SH') {
-		steps {
+	steps {
         loop_with_preceding_sh(abcs)
 	sleep 30 // seconds
       }
     }
     stage('Spike 4: traditional for loop') {
-		steps {
+	steps {
         traditional_int_for_loop(abcs)
 	sleep 30 // seconds
       }
-	}
-	stage ('un-tar cats') {
-		steps {
-        sh 'tar -xzvf' Kikicam.tar
-	
+    }
+    stage ('un-tar cats') {
+	steps {
+        sh 'tar -xzvf Kikicam.tar'	
+        }  
+    }
+    stage ('tar cats') {
+	steps {
+        sh 'tar -cfz Kikicam_1.tar ./Kikicam_01'	
       }  
-	}
-	stage ('tar cats') {
-		steps {
-        sh 'tar -cfz' Kikicam_1.tar ./Kikicam_01
-	
+    }
+    stage ('un-tar more cats') {
+	steps {
+        sh 'tar -xzvf Kikicam_1.tar'
       }  
-	}
-  	stage ('un-tar more cats') {
-		steps {
-        sh 'tar -xzvf' Kikicam_1.tar
-	
+    }
+    stage ('tar more cats') {
+	steps {
+        sh 'tar -cfz Kikicam_2.tar ./Kikicam_01'	
       }  
-	}
-	stage ('tar more cats') {
-		steps {
-        sh 'tar -cfz' Kikicam_2.tar ./Kikicam_01
-	
-      }  
-	}
+    }
   }
   post {
     always {
