@@ -46,7 +46,12 @@ pipeline {
 	sleep 30 // seconds
       }
     }
-    stage ('un-tar cats') {
+    stage ('list cats') {
+	steps {
+        sh 'ls'	
+        }  
+    }
+	  stage ('un-tar cats') {
 	steps {
         sh 'tar -xzvf Kikicam.tar'	
         }  
