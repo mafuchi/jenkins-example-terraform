@@ -73,7 +73,7 @@ pipeline {
     }
         stage ('test cat tar') {
 	steps {
-        tar test : true, file : 'Kikicam_2.tar', dir : 'Kikicam_02'	
+        untar test : true, file : 'Kikicam_2.tar', dir : 'Kikicam_02'	
       }  
     }
 	  
